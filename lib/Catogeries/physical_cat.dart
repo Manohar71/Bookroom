@@ -1,4 +1,5 @@
 import 'package:bookroom/Catogeries/cat_data.dart';
+import 'package:bookroom/book%20reading/book_read.dart';
 import 'package:bookroom/ui%20widgets/catgories.dart';
 import 'package:bookroom/ui%20widgets/neobox.dart';
 import 'package:flutter/material.dart';
@@ -22,12 +23,40 @@ class _physical_catState extends State<physical_cat> {
       itemBuilder: ((context, index) => Padding(
           padding: const EdgeInsets.all(10.0),
           child: Row(
-            children: [Center(child: neobox())],
+            children: [Center(child: neobox(pysicai_wid()))],
           ))),
     );
   }
 
   Widget pysicai_wid() {
-    return Container();
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (contex) => book_read()));
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Row(
+          children: [
+            Image.asset("assets/elon.png"),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15.0, 0, 0, 0),
+              child: Column(
+                children: const [
+                  Text(
+                    "ELON MUSK ",
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                  Text("Ashlee Vance",
+                      style: TextStyle(color: Colors.white, fontSize: 18)),
+                  Text("Year : 2015",
+                      style: TextStyle(color: Colors.white, fontSize: 18))
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
