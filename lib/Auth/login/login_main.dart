@@ -1,6 +1,7 @@
 import 'package:bookroom/Auth/passwoed%20reset/main_password.dart';
 import 'package:bookroom/Auth/sinup/main_sinup.dart';
 import 'package:bookroom/Catogeries/physical_cat.dart';
+import 'package:bookroom/profile/profile_main.dart';
 import 'package:bookroom/ui%20widgets/login_butt.dart';
 import 'package:bookroom/ui%20widgets/login_txtfeild.dart';
 import 'package:bookroom/ui%20widgets/white_box.dart';
@@ -62,7 +63,8 @@ class _loginmainState extends State<loginmain> {
           padding: const EdgeInsets.fromLTRB(0,20,0,0),
           child: Center(child: InkWell(
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => physical_cat()));
+              // Navigator.of(context).push(MaterialPageRoute(builder: (context) => physical_cat()));
+               Navigator.of(context).push(MaterialPageRoute(builder: (context) => profile_main()));
             },
             child: login_butt("login"))),
         ),
