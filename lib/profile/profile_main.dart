@@ -1,4 +1,7 @@
+import 'package:bookroom/Auth/login/login_main.dart';
 import 'package:bookroom/ui%20widgets/white_box.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:syncfusion_flutter_charts/sparkcharts.dart';
@@ -25,13 +28,28 @@ class _profile_mainState extends State<profile_main> {
             children: [
               IconButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    FirebaseAuth.instance.signOut().then((value) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>loginmain()));
+                    });
                   },
-                  icon: Icon(Icons.arrow_back , color: Colors.white,size: 20,)),
-                  SizedBox(
-            width: 70,
-          ),
-              Text('Profile' , style: TextStyle(color: Colors.white , fontSize: 20 , fontWeight: FontWeight.w500),),
+                  icon: Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                    size: 20,
+                  )),
+              SizedBox(
+                width: 70,
+              ),
+              Text(
+                'Profile',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500),
+              ),
             ],
           ),
           Padding(
@@ -39,7 +57,13 @@ class _profile_mainState extends State<profile_main> {
             child: Row(
               children: [
                 Image.asset("assets/vect_w.png"),
-                Text('Dr . proffesor', style: TextStyle(color: Colors.white , fontSize: 20 , fontWeight: FontWeight.w700),),
+                Text(
+                  'Dr . proffesor',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700),
+                ),
               ],
             ),
           ),
@@ -51,8 +75,7 @@ class _profile_mainState extends State<profile_main> {
 
   Widget profile_widget() {
     return Column(
-      children: [
-      ],
+      children: [],
     );
   }
 }

@@ -1,7 +1,9 @@
 import 'package:bookroom/Auth/login/login_main.dart';
+import 'package:bookroom/profile/profile_main.dart';
 import 'package:bookroom/ui%20widgets/login_butt.dart';
 import 'package:bookroom/ui%20widgets/login_txtfeild.dart';
 import 'package:bookroom/ui%20widgets/purple_box.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class sinup_main extends StatefulWidget {
@@ -54,12 +56,24 @@ class _sinup_mainState extends State<sinup_main> {
                 const SizedBox(
                   width: 50,
                 ),
-                const Text(
-                  "Sign Up",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 30,
-                      fontWeight: FontWeight.w700),
+                InkWell(
+                  onTap: () {
+                    FirebaseAuth.instance
+                        .createUserWithEmailAndPassword(
+                            email: tab6.text, password: tab7.text)
+                        .then((value) => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => profile_main())
+                                ).onError((error, stackTrace) => print("Error occured ${error.toString()}")));
+                  },
+                  child: const Text(
+                    "Sign Up",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
+                        fontWeight: FontWeight.w700),
+                  ),
                 )
               ],
             ),
@@ -78,17 +92,17 @@ class _sinup_mainState extends State<sinup_main> {
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: login_txtfeild(
-                "Enter E-mail", Icon(Icons.account_circle), tab5),
+                "Enter Username", Icon(Icons.account_circle), tab5),
           ),
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: login_txtfeild(
-                "Enter Password", Icon(Icons.account_circle), tab6),
+                "Enter E mail", Icon(Icons.account_circle), tab6),
           ),
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: login_txtfeild(
-                "Re-Enter Password", Icon(Icons.account_circle), tab7),
+                "Enter Password", Icon(Icons.account_circle), tab7),
           ),
         ],
       );
