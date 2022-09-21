@@ -28,12 +28,7 @@ class _profile_mainState extends State<profile_main> {
             children: [
               IconButton(
                   onPressed: () {
-                    FirebaseAuth.instance.signOut().then((value) {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>loginmain()));
-                    });
+                  
                   },
                   icon: Icon(
                     Icons.arrow_back,

@@ -12,22 +12,25 @@ class home_widget extends StatefulWidget {
 class _home_widgetState extends State<home_widget> {
   late Image img;
   late Text txt;
+  
   _home_widgetState(this.img, this.txt);
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Container(
-          height: 130,
+          height: 110,
           width: 130,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: Color.fromARGB(125, 0, 0, 0)),
+              borderRadius: BorderRadius.circular(20),
+              color: Color.fromARGB(125, 0, 0, 0)),
           child: img,
         ),
-        txt
+        Padding(
+          padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+          child: txt,
+        )
       ],
     );
-    
   }
 }

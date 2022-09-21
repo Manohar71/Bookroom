@@ -1,6 +1,7 @@
 import 'package:bookroom/Auth/passwoed%20reset/main_password.dart';
 import 'package:bookroom/Auth/sinup/main_sinup.dart';
 import 'package:bookroom/Catogeries/physical_cat.dart';
+import 'package:bookroom/home/main_home.dart';
 import 'package:bookroom/profile/profile_main.dart';
 import 'package:bookroom/ui%20widgets/login_butt.dart';
 import 'package:bookroom/ui%20widgets/login_txtfeild.dart';
@@ -73,7 +74,7 @@ class _loginmainState extends State<loginmain> {
                             email: tab4.text, password: tab5.text)
                         .then((value) {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => profile_main()));
+                          builder: (context) => main_home()));
                     });
                     // Navigator.of(context).push(MaterialPageRoute(builder: (context) => physical_cat()));
                   },

@@ -44,8 +44,9 @@ class _password_resetState extends State<password_reset> {
             children: [
               InkWell(
                   onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const loginmain()));
+                    // Navigator.of(context).push(MaterialPageRoute(
+                    //     builder: (context) => const loginmain()));
+                    Navigator.pop(context);
                   },
                   child: const Icon(
                     Icons.arrow_back,

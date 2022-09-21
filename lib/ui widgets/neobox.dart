@@ -14,13 +14,14 @@ class _neoboxState extends State<neobox> {
   _neoboxState(this.neo_child);
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0,10,0,10),
       child: Container(
         height: 120,
         width: MediaQuery.of(context).size.width * 0.85,
         decoration: BoxDecoration(
             color: const Color.fromARGB(133, 196, 196, 196),
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(40),
             boxShadow: const [
               BoxShadow(
                 color: Color.fromARGB(64, 0, 0, 0),

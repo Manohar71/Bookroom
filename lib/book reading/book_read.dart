@@ -16,10 +16,13 @@ class _book_readState extends State<book_read> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(
+            height: 35,
+          ),
           Stack(children: [
             SizedBox(
                 width: MediaQuery.of(context).size.width,
-                child: Image.asset("assets/book1.png")),
+                child: Image.asset("assets/book1.png" , fit: BoxFit.fill,)),
             Column(
               children: [
                 Padding(
@@ -28,17 +31,19 @@ class _book_readState extends State<book_read> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       CircleAvatar(
-                        backgroundColor: Colors.white,
+                        backgroundColor: Color.fromARGB(115, 0, 0, 0),
                         radius: 20,
                         child: IconButton(
                           padding: EdgeInsets.zero,
                           icon: const Icon(Icons.arrow_back),
-                          color: Colors.purple,
-                          onPressed: () {},
+                          color: Colors.white,
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
                         ),
                       ),
                       CircleAvatar(
-                        backgroundColor: const Color.fromARGB(124, 0, 0, 0),
+                        backgroundColor: Color.fromARGB(129, 155, 39, 176),
                         radius: 20,
                         child: IconButton(
                           padding: EdgeInsets.zero,

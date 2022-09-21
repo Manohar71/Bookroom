@@ -23,12 +23,19 @@ class _catogeriesState extends State<catogeries> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(20,30,30,30.0),
-            child: Icon(Icons.arrow_back , color: Colors.purple,size: 30,),
+            padding: const EdgeInsets.fromLTRB(20, 30, 30, 30.0),
+            child: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: Colors.purple,
+                  size: 30,
+                )),
           ),
           Center(child: logo),
           Expanded(child: white_box(Child_w, Colors.purple))
-          
         ],
       ),
     );
