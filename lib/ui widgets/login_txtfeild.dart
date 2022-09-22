@@ -45,7 +45,9 @@ class _login_txtfeildState extends State<login_txtfeild> {
                 border: InputBorder.none,
                 hintText: hintname,
                 hintStyle: TextStyle(fontSize: 20),
-                prefixIcon: icon_name),
+                prefixIcon: icon_name,
+                iconColor: Colors.black
+                ),
           ),
         ),
       ),

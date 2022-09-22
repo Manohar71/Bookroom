@@ -1,6 +1,7 @@
 import 'package:bookroom/Catogeries/physical_cat.dart';
 import 'package:bookroom/downloads/main_download.dart';
 import 'package:bookroom/home/sidebar_menu.dart';
+import 'package:bookroom/search/main_search.dart';
 import 'package:bookroom/ui%20widgets/home_widget.dart';
 import 'package:bookroom/ui%20widgets/white_box.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +66,12 @@ class _main_homeState extends State<main_home> {
                                 size: 30,
                               )),
                           IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                 Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => main_search()));
+                              },
                               icon: Icon(
                                 Icons.search,
                                 color: Colors.purple,
@@ -158,7 +164,7 @@ class _main_homeState extends State<main_home> {
                             fontWeight: FontWeight.w500))),
                 home_widget(
                     Image.asset("assets/a_purple.png"),
-                    Text("Returend Books",
+                    Text("Returned Books",
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 20,

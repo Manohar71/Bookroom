@@ -40,6 +40,7 @@ dependencies:
   syncfusion_flutter_charts: ^20.2.49
   firebase_core: ^1.22.0
   firebase_auth: ^3.8.0
+  syncfusion_flutter_pdfviewer: ^20.2.50-beta
 
 dev_dependencies:
   flutter_test:

@@ -1,3 +1,4 @@
+import 'package:bookroom/pdfview/pdfviewer.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
@@ -22,7 +23,10 @@ class _book_readState extends State<book_read> {
           Stack(children: [
             SizedBox(
                 width: MediaQuery.of(context).size.width,
-                child: Image.asset("assets/book1.png" , fit: BoxFit.fill,)),
+                child: Image.asset(
+                  "assets/book1.png",
+                  fit: BoxFit.fill,
+                )),
             Column(
               children: [
                 Padding(
@@ -80,7 +84,12 @@ class _book_readState extends State<book_read> {
                           padding: EdgeInsets.zero,
                           icon: const Icon(Icons.add),
                           color: Colors.purple,
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => pdfviewer()));
+                          },
                         ),
                       ),
                     ],
