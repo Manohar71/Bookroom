@@ -96,6 +96,7 @@ class _main_homeState extends State<main_home> {
     return SingleChildScrollView(
       child: Column(
         children: [
+        //  SizedBox(height: 50,),
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
             child: Row(

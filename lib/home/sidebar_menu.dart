@@ -1,4 +1,6 @@
 import 'package:bookroom/Auth/passwoed%20reset/main_password.dart';
+import 'package:bookroom/profile/profile_main.dart';
+import 'package:bookroom/settings/main_settings.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -33,24 +35,47 @@ class _sidebarmenuState extends State<sidebarmenu> {
                   height: 50,
                 ),
                 SizedBox(
-                  width: 100,
-                  height: 80,
-                  child: Image.asset("assets/vect_w.png" , fit: BoxFit.cover,)),
-                Text("Bookroom" , style: TextStyle(color: Colors.white , fontSize: 25 , fontWeight: FontWeight.w500),),
-                Text("CSE", style: TextStyle(color: Colors.white , fontSize: 25 , fontWeight: FontWeight.w500),),
-                 const SizedBox(
+                    width: 100,
+                    height: 80,
+                    child: Image.asset(
+                      "assets/vect_w.png",
+                      fit: BoxFit.cover,
+                    )),
+                Text(
+                  "Bookroom",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500),
+                ),
+                Text(
+                  "CSE",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500),
+                ),
+                const SizedBox(
                   height: 10,
                 ),
                 const Divider(
                   color: Colors.white,
                   thickness: 2,
                 ),
-                 const SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                const Text(
-                  "Profile ",
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => profile_main()));
+                  },
+                  child: const Text(
+                    "Profile ",
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
                 ),
                 const SizedBox(
                   height: 10,
@@ -62,9 +87,17 @@ class _sidebarmenuState extends State<sidebarmenu> {
                 const SizedBox(
                   height: 10,
                 ),
-                const Text(
-                  "Settings ",
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => main_setting()));
+                  },
+                  child: const Text(
+                    "Settings ",
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
                 ),
                 const SizedBox(
                   height: 10,
@@ -92,7 +125,10 @@ class _sidebarmenuState extends State<sidebarmenu> {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> password_reset()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => password_reset()));
                   },
                   child: const Text(
                     "Reset Password ",
@@ -125,11 +161,9 @@ class _sidebarmenuState extends State<sidebarmenu> {
                 ),
                 InkWell(
                   onTap: () {
-                      FirebaseAuth.instance.signOut().then((value) {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>loginmain()));
+                    FirebaseAuth.instance.signOut().then((value) {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => loginmain()));
                     });
                   },
                   child: const Text(

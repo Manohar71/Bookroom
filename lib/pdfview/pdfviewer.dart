@@ -81,8 +81,8 @@ class _pdfviewerState extends State<pdfviewer> {
               ),
             ),
           ),
-          Expanded(child: white_box(pdf_child(), Colors.purple))
-        ],
+          Expanded(child: white_box(pdf_child(),Colors.purple))
+        ], 
       ),
     );
   }
@@ -90,13 +90,28 @@ class _pdfviewerState extends State<pdfviewer> {
   Widget pdf_child() {
     return Scaffold(
       body: Stack(
-        children:[ Container(
-            height: MediaQuery.of(context).size.height * 0.5,
-            width: MediaQuery.of(context).size.width * 0.8,
-            child: SfPdfViewer.network(
-              'https://cdn.syncfusion.com/content/PDFViewer/flutter-succinctly.pdf',
-              controller: _pdfViewerController,
-            )),
+        children:[
+         Container(
+      width: MediaQuery.of(context).size.width,
+      decoration:  BoxDecoration(
+          color: Colors.purple,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(50.0),
+            topRight: Radius.circular(50.0),
+          )),
+    ),
+           Center(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(0,30,0,0),
+            child: Container(
+                height: MediaQuery.of(context).size.height * 0.7,
+                width: MediaQuery.of(context).size.width * 0.85,
+                child: SfPdfViewer.network(
+                  'https://cdn.syncfusion.com/content/PDFViewer/flutter-succinctly.pdf',
+                  controller: _pdfViewerController,
+                )),
+          ),
+        ),
         ]
       ),
     );

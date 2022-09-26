@@ -23,7 +23,7 @@ class _home_widgetState extends State<home_widget> {
           width: 130,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: Color.fromARGB(125, 0, 0, 0)),
+              color: Color.fromARGB(116, 196, 196, 196)),
           child: img,
         ),
         Padding(

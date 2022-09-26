@@ -27,18 +27,16 @@ class _profile_mainState extends State<profile_main> {
           Row(
             children: [
               IconButton(
-                  onPressed: () {
-                  
-                  },
-                  icon: Icon(
+                  onPressed: () {},
+                  icon: const Icon(
                     Icons.arrow_back,
                     color: Colors.white,
                     size: 20,
                   )),
-              SizedBox(
+              const SizedBox(
                 width: 70,
               ),
-              Text(
+              const Text(
                 'Profile',
                 style: TextStyle(
                     color: Colors.white,
@@ -52,7 +50,7 @@ class _profile_mainState extends State<profile_main> {
             child: Row(
               children: [
                 Image.asset("assets/vect_w.png"),
-                Text(
+                const Text(
                   'Dr . proffesor',
                   style: TextStyle(
                       color: Colors.white,
@@ -70,7 +68,7 @@ class _profile_mainState extends State<profile_main> {
 
   Widget profile_widget() {
     return Column(
-      children: [],
+      children: const [],
     );
   }
 }
