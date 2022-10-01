@@ -17,8 +17,15 @@ class loginmain extends StatefulWidget {
 }
 
 class _loginmainState extends State<loginmain> {
-  final tab4 = TextEditingController();
-  final tab5 = TextEditingController();
+  final emailcontroller = TextEditingController();
+  final passwordcontroller = TextEditingController();
+  @override
+  void dispose() {
+    emailcontroller.dispose();
+    passwordcontroller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,11 +54,12 @@ class _loginmainState extends State<loginmain> {
           padding: const EdgeInsets.all(20.0),
           child: Center(child: Image.asset("assets/Vector.png")),
         ),
-        login_txtfeild("E-mail", Icon(Icons.account_circle), tab4),
+        login_txtfeild("E-mail", Icon(Icons.account_circle), emailcontroller),
         SizedBox(
           height: 20,
         ),
-        login_txtfeild("Enter Password", Icon(Icons.account_circle), tab5),
+        login_txtfeild(
+            "Enter Password", Icon(Icons.account_circle), passwordcontroller),
         Padding(
           padding: const EdgeInsets.all(20.0),
           child: InkWell(
@@ -67,18 +75,7 @@ class _loginmainState extends State<loginmain> {
         Padding(
           padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
           child: Center(
-              child: InkWell(
-                  onTap: () {
-                    FirebaseAuth.instance
-                        .signInWithEmailAndPassword(
-                            email: tab4.text, password: tab5.text)
-                        .then((value) {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => main_home()));
-                    });
-                    // Navigator.of(context).push(MaterialPageRoute(builder: (context) => physical_cat()));
-                  },
-                  child: login_butt("login"))),
+              child: InkWell(onTap: () => sigIn(), child: login_butt("login"))),
         ),
         Padding(
           padding: const EdgeInsets.fromLTRB(30, 30, 30, 0),
@@ -108,5 +105,10 @@ class _loginmainState extends State<loginmain> {
         ),
       ],
     );
+  }
+
+  Future sigIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailcontroller.text.trim(), password: passwordcontroller.text.trim());
   }
 }

@@ -26,22 +26,29 @@ class _profile_mainState extends State<profile_main> {
           ),
           Row(
             children: [
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.arrow_back,
-                    color: Colors.white,
-                    size: 20,
-                  )),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                child: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                      size: 25,
+                    )),
+              ),
               const SizedBox(
                 width: 70,
               ),
-              const Text(
-                'Profile',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500),
+              const Center(
+                child: Text(
+                  'Profile',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500),
+                ),
               ),
             ],
           ),
@@ -49,7 +56,16 @@ class _profile_mainState extends State<profile_main> {
             padding: const EdgeInsets.fromLTRB(0, 0, 0, 50),
             child: Row(
               children: [
-                Image.asset("assets/vect_w.png"),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(15,0,0,0),
+                  child: SizedBox(
+                      height: 80,
+                      width: 100,
+                      child: Image.asset(
+                        "assets/man.png",
+                        fit: BoxFit.cover,
+                      )),
+                ),
                 const Text(
                   'Dr . proffesor',
                   style: TextStyle(

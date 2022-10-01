@@ -8,15 +8,14 @@ import 'package:flutter/material.dart';
 
 class sinup_main extends StatefulWidget {
   const sinup_main({super.key});
-
   @override
   State<sinup_main> createState() => _sinup_mainState();
 }
 
 class _sinup_mainState extends State<sinup_main> {
   final tab5 = TextEditingController();
-  final tab6 = TextEditingController();
-  final tab7 = TextEditingController();
+  final emailcontroller = TextEditingController();
+  final passwordcontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,6 +34,24 @@ class _sinup_mainState extends State<sinup_main> {
         ],
       ),
     );
+  }
+
+  Future signup() async {
+    showDialog(
+        context: context,
+        builder: (context) => Center(
+              child: CircularProgressIndicator(),
+            ));
+    try {
+      print("function is working");
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: emailcontroller.text.trim(),
+          password: passwordcontroller.text.trim());
+      // email: "manu@gamil",
+      // password: "secrect");
+    } on FirebaseAuthException catch (e) {
+      print(e);
+    }
   }
 
   Widget purple_child() => Column(
@@ -58,14 +75,8 @@ class _sinup_mainState extends State<sinup_main> {
                 ),
                 InkWell(
                   onTap: () {
-                    FirebaseAuth.instance
-                        .createUserWithEmailAndPassword(
-                            email: tab6.text, password: tab7.text)
-                        .then((value) => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => profile_main())
-                                ).onError((error, stackTrace) => print("Error occured ${error.toString()}")));
+                    print("ontap is tapped");
+                    signup();
                   },
                   child: const Text(
                     "Sign Up",
@@ -97,12 +108,12 @@ class _sinup_mainState extends State<sinup_main> {
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: login_txtfeild(
-                "Enter E mail", Icon(Icons.account_circle), tab6),
+                "Enter E mail", Icon(Icons.account_circle), emailcontroller),
           ),
           Padding(
             padding: const EdgeInsets.all(20.0),
-            child: login_txtfeild(
-                "Enter Password", Icon(Icons.account_circle), tab7),
+            child: login_txtfeild("Enter Password", Icon(Icons.account_circle),
+                passwordcontroller),
           ),
         ],
       );
